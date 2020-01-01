@@ -1,0 +1,26 @@
+<body>
+    <div id="container">
+        <h1>My Task Board</h1>
+        <?php form_open('', 'id="new_todo_form"') ?>
+            <input type="text" id="new_todo" class="form-control" placeholder="Enter your todos!">
+        </form>
+        <ul id="todos" class="list-group">
+           <?php echo "for todo in todos"; ?>
+                <li id="todo_<?php todo.id | e ?>" data-id="{{ todo.id | e }}" class="list-group-item">
+                    <input id="checkbox_{{ todo.id | e }}" type="checkbox" class="update_todo" {% if todo.state is same as('1') %} {{ checked }} {% endif %}>
+                    <label for="checkbox_{{ todo.id | e }}">
+                        <span class="todo_title {% if todo.state is same as('1') %} {{ done }} {% endif %}">{{ todo.title | e }}</span>
+                    </label>
+                    <div class="delete_todo">x</div>
+                </li>
+            {% endfor %}
+            <li id="todo_template" data-id="" class="list-group-item" style="">
+                <input id="" type="checkbox" class="update_todo">
+                <label for="">
+                    <span class="todo_title"></span>
+                </label>
+                <div class="delete_todo">x</div>
+            </li>
+        </ul>
+    </div>
+</body>
